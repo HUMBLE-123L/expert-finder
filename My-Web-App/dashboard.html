@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ExpertFinder – Find Local Experts</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="https://placehold.co/16x16/007bff/ffffff?text=EF"/>
+</head>
+<section id="dashboardSection">
+        <h2>Your Dashboard</h2>
+        <div class="dashboard-controls">
+            <button onclick="showSettingsModal()">Settings</button>
+        </div>
+        <div class="dashboard-content">
+            <div id="findExpertCard" class="dashboard-card">
+                <h3>Find Experts Near You</h3>
+                <form id="searchForm">
+                    <input type="text" placeholder="e.g. Plumber, Electrician" required />
+                    <input type="text" placeholder="Your City or ZIP" required />
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+            <div id="clientDashboardContent" class="dashboard-card" style="display:none;">
+                </div>
+
+            <div id="expertDashboardContent" class="dashboard-card" style="display:none;">
+                <h3>Your Hired Jobs & Offers</h3>
+                <div class="job-list">
+                    <p>No jobs hired or offers received yet.</p>
+                    </div>
+                <h3>Available Jobs to Bid On</h3>
+                <div class="job-list">
+                    <p>No new jobs available for bidding.</p>
+                    </div>
+            </div>
+        </div>
+
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="hideSettingsModal()">&times;</span>
+                <h3>Settings</h3>
+                <div class="settings-options">
+                    <button>Account Settings</button>
+                    <button>Change Password</button>
+                    <button id="toggleDarkInSettings">Dark Mode Settings</button>
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

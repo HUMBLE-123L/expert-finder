@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ExpertFinder – Find Local Experts</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="https://placehold.co/16x16/007bff/ffffff?text=EF"/>
+</head>
+ <section id="loginSection">
+        <h2>User Login</h2>
+        <form id="loginForm">
+            <input type="email" placeholder="E-Mail" required />
+            <input type="password" placeholder="Password" required />
+            <div class="role-selection">
+                <label>Login as:</label>
+                <input type="radio" id="loginClient" name="loginRole" value="client" checked>
+                <label for="loginClient">Client</label>
+                <input type="radio" id="loginExpert" name="loginRole" value="expert">
+                <label for="loginExpert">Expert</label>
+            </div>
+            <label><input type="checkbox" /> Remember me</label>
+            <button type="submit">LOGIN</button>
+            <p><a href="#" onclick="navigate('forgotStep1')">Forgot Password?</a></p>
+            <p>Don't have an account? <a href="#" onclick="navigate('signupSection')">Sign up</a></p>
+        </form>
+    </section>
+</body>
+</html>

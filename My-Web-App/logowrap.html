@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ExpertFinder – Find Local Experts</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="https://placehold.co/16x16/007bff/ffffff?text=EF"/>
+</head>
+<header>
+        <div class="logo-wrap">
+            <img src="https://placehold.co/50x50/007bff/ffffff?text=EF" alt="ExpertFinder Logo" class="logo"/>
+            <h1>ExpertFinder</h1>
+        </div>
+        <nav>
+            <button onclick="navigate('homeSection')">Home</button>
+            <button id="loginNavBtn" onclick="navigate('loginSection')">Login</button>
+            <button id="signupNavBtn" onclick="navigate('signupSection')">Signup</button>
+            <button id="dashboardNavBtn" onclick="navigate('dashboardSection')" style="display:none;">Dashboard</button>
+            <button id="postJobNavBtn" onclick="navigate('postJobSection')" style="display:none;">Post Job</button>
+            <button id="logoutNavBtn" onclick="logout()" style="display:none;">Logout</button>
+            <button id="toggleDark">🌙</button>
+        </nav>
+</header>
+<script type="module"src=script.js/script.js'></script>
+</body>
+</html>
+    
+

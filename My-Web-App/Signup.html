@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ExpertFinder – Find Local Experts</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="https://placehold.co/16x16/007bff/ffffff?text=EF"/>
+    
+</head>
+<section id="signupSection">
+        <h2>Create Account</h2>
+        <form id="signupForm">
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <div class="role-selection">
+                <label>I am a:</label>
+                <input type="radio" id="signupClient" name="signupRole" value="client" checked>
+                <label for="signupClient">Client</label>
+                <input type="radio" id="signupExpert" name="signupRole" value="expert">
+                <label for="signupExpert">Expert</label>
+            </div>
+            <button type="submit">Sign Up</button>
+            <p>Already have an account? <a href="#" onclick="navigate('loginSection')">Log in</a></p>
+        </form>
+    </section>
+
+    <section id="forgotStep1">
+        <h2>Forgot Password</h2>
+        <p>Hi! Please enter your email to reset your password:</p>
+        <form>
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit" onclick="navigate('forgotStep2'); return false;">Next</button>
+        </form>
+    </section>
+
+    <section id="forgotStep2">
+        <h2>Forgot Password</h2>
+        <p>Hi! Please enter the code sent to your email:</p>
+        <form>
+            <input type="text" placeholder="Verification Code" required />
+            <input type="password" placeholder="New Password" required />
+            <button type="submit">Reset Password</button>
+        </form>
+    </section>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ExpertFinder – Find Local Experts</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="https://placehold.co/16x16/007bff/ffffff?text=EF"/>
+</head>
+<body>
+
+    <header>
+        <div class="logo-wrap">
+            <img src="https://placehold.co/50x50/007bff/ffffff?text=EF" alt="ExpertFinder Logo" class="logo"/>
+            <h1>ExpertFinder</h1>
+        </div>
+        <nav>
+            <button onclick="navigate('homeSection')">Home</button>
+            <button id="loginNavBtn" onclick="navigate('loginSection')">Login</button>
+            <button id="signupNavBtn" onclick="navigate('signupSection')">Signup</button>
+            <button id="dashboardNavBtn" onclick="navigate('dashboardSection')" style="display:none;">Dashboard</button>
+            <button id="postJobNavBtn" onclick="navigate('postJobSection')" style="display:none;">Post Job</button>
+            <button id="logoutNavBtn" onclick="logout()" style="display:none;">Logout</button>
+            <button id="toggleDark">🌙</button>
+        </nav>
+    </header>
+
+    <section id="homeSection" class="active">
+        <h2>Welcome to ExpertFinder</h2>
+        <p>Your one-stop solution to find local experts for any job, big or small.</p>
+
+        <h3>How it Works</h3>
+        <div class="how-it-works-grid">
+            <div class="step-card">
+                <h4>1. Find an Expert</h4>
+                <div class="step-description">
+                    <p>Use our search to locate professionals by skill or location.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <h4>2. Post Your Job</h4>
+                <div class="step-description">
+                    <p>Describe your task and let qualified experts send you offers.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <h4>3. Connect & Hire</h4>
+                <div class="step-description">
+                    <p>Chat directly with experts, compare bids, and choose the best fit for your needs.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <h4>4. Get It Done!</h4>
+                <div class="step-description">
+                    <p>Relax while your job is completed by a trusted professional.</p>
+                </div>
+            </div>
+        </div>
+        <p class="call-to-action">Ready to get started? <a href="#" onclick="navigate('signupSection')">Sign up now!</a></p>
+    </section>
+
+    <section id="loginSection">
+        <h2>User Login</h2>
+        <form id="loginForm">
+            <input type="email" placeholder="E-Mail" required />
+            <input type="password" placeholder="Password" required />
+            <div class="role-selection">
+                <label>Login as:</label>
+                <input type="radio" id="loginClient" name="loginRole" value="client" checked>
+                <label for="loginClient">Client</label>
+                <input type="radio" id="loginExpert" name="loginRole" value="expert">
+                <label for="loginExpert">Expert</label>
+            </div>
+            <label><input type="checkbox" /> Remember me</label>
+            <button type="submit">LOGIN</button>
+            <p><a href="#" onclick="navigate('forgotStep1')">Forgot Password?</a></p>
+            <p>Don't have an account? <a href="#" onclick="navigate('signupSection')">Sign up</a></p>
+        </form>
+    </section>
+
+    <section id="signupSection">
+        <h2>Create Account</h2>
+        <form id="signupForm">
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <div class="role-selection">
+                <label>I am a:</label>
+                <input type="radio" id="signupClient" name="signupRole" value="client" checked>
+                <label for="signupClient">Client</label>
+                <input type="radio" id="signupExpert" name="signupRole" value="expert">
+                <label for="signupExpert">Expert</label>
+            </div>
+            <button type="submit">Sign Up</button>
+            <p>Already have an account? <a href="#" onclick="navigate('loginSection')">Log in</a></p>
+        </form>
+    </section>
+
+    <section id="forgotStep1">
+        <h2>Forgot Password</h2>
+        <p>Hi! Please enter your email to reset your password:</p>
+        <form>
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit" onclick="navigate('forgotStep2'); return false;">Next</button>
+        </form>
+    </section>
+
+    <section id="forgotStep2">
+        <h2>Forgot Password</h2>
+        <p>Hi! Please enter the code sent to your email:</p>
+        <form>
+            <input type="text" placeholder="Verification Code" required />
+            <input type="password" placeholder="New Password" required />
+            <button type="submit">Reset Password</button>
+        </form>
+    </section>
+
+    <section id="dashboardSection">
+        <h2>Your Dashboard</h2>
+        <div class="dashboard-controls">
+            <button onclick="showSettingsModal()">Settings</button>
+        </div>
+        <div class="dashboard-content">
+            <div id="findExpertCard" class="dashboard-card">
+                <h3>Find Experts Near You</h3>
+                <form id="searchForm">
+                    <input type="text" placeholder="e.g. Plumber, Electrician" required />
+                    <input type="text" placeholder="Your City or ZIP" required />
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+            <div id="clientDashboardContent" class="dashboard-card" style="display:none;">
+                </div>
+
+            <div id="expertDashboardContent" class="dashboard-card" style="display:none;">
+                <h3>Your Hired Jobs & Offers</h3>
+                <div class="job-list">
+                    <p>No jobs hired or offers received yet.</p>
+                    </div>
+                <h3>Available Jobs to Bid On</h3>
+                <div class="job-list">
+                    <p>No new jobs available for bidding.</p>
+                    </div>
+            </div>
+        </div>
+
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="hideSettingsModal()">&times;</span>
+                <h3>Settings</h3>
+                <div class="settings-options">
+                    <button>Account Settings</button>
+                    <button>Change Password</button>
+                    <button id="toggleDarkInSettings">Dark Mode Settings</button>
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="postJobSection">
+        <h2>Post a Job</h2>
+        <form id="postJobForm">
+            <input type="text" placeholder="Job Title" required />
+            <textarea placeholder="Describe your job..." required></textarea>
+            <input type="text" placeholder="Location" required />
+            <input type="text" placeholder="Contact Info" required />
+            <button type="submit">Post Job</button>
+        </form>
+        <div id="postedJobs" class="job-list">
+            <h4>Your Posted Jobs:</h4>
+            <p>No jobs posted yet.</p>
+        </div>
+    </section>
