@@ -66,3 +66,26 @@ function navigate(section) {
 
   revealOnScroll();
 }
+
+function listenForNotifications(Expertusername) {
+  const notifRef = db.collection('users').doc(Expertusername).collection("notifications").orderBy("timestamp","desc");
+
+  notifRef.onSnapshot((snapshot) => {
+    snapshot.docChanges().forEach(change => {
+      if (change.type === "added") {
+        const data = change.doc.data();
+        showNotification(data.message);
+      }
+    })
+ })
+}
+
+function showNotification(message) {
+  const div = document.createElement("div");
+div.textContent = message;
+div.style.background = "#e0ffe0";
+div.style.border = "1px solid #4caf50";
+div.style.padding = "10px";
+div.style.padding = "5px 0";
+document.getElementById("notifications").prepend(div);
+}
